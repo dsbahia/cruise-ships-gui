@@ -1,0 +1,14 @@
+{
+  "name": "cruise-ships",
+  "version": "1.0.0",
+  "description": "This is a project where i'm building and working with many objects that allow a cruise ship to operate. Hopefully we don't hit any icebergs on the way.",
+  "main": "pet.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Dal Bahia",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
