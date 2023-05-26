@@ -1,14 +1,15 @@
-const Ship = require('../src/ship');
-const Port = require('../src/port');
+const Port = require("../src/port");
 
-describe('constructor', () => {
-    it('Ensures an instance of a port object can be created', () => {
-        const port = new Port();
-        expect(port).toBeInstanceOf(Object);
-    });
+describe("constructor", () => {
+  it("Ensures an instance of a port object can be created", () => {
+    const port = new Port();
 
-    it('Port object has a name property', () => {
-        const port = new Port('Amsterdam');
-        expect(port.currentPort).toBe('Amsterdam');
-    });
+    expect(port).toBeInstanceOf(Object);
+  });
+
+  it("Port object has a name property", () => {
+    const port = new Port("Amsterdam");
+
+    expect(port.name).toBe("Amsterdam");
+  });
 });
