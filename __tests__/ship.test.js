@@ -27,9 +27,10 @@ describe("constructor", () => {
     ship.setSail();
 
     expect(ship.currentPort).toBeFalsy();
+    expect(calais.ships.indexOf(ship)).toBe(-1);
   });
 
-  it("can dock to another port", () => {
+  it("can dock at a different port", () => {
     const calais = new Port("Calais");
     const amsterdam = new Port("Amsterdam");
 
@@ -40,6 +41,7 @@ describe("constructor", () => {
     ship.dock();
 
     expect(ship.currentPort).toBe(amsterdam);
+    expect(amsterdam.ships).toContain(ship);
   });
 
   it("cannot sail beyond the itinerary", () => {
@@ -52,8 +54,17 @@ describe("constructor", () => {
 
     ship.setSail();
     ship.dock();
+
     expect(() => ship.setSail()).toThrowError(
       "Cannot set sail. End of itinerary reached."
     );
+  });
+
+  it("Ship gets added to port on instaniation", () => {
+    const calais = new Port("Calais");
+    const itinerary = new Itinerary([calais]);
+    const ship = new Ship (itinerary);
+
+    expect(calais.ships).toContain(ship);
   });
 });
