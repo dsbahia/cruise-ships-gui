@@ -2,28 +2,25 @@ const Ship = require("../src/ship");
 const Port = require("../src/port");
 const Itinerary = require("../src/itinerary");
 
-describe("constructor", () => {
-  it("Ensures an instance of an object can be created", () => {
-    const itinerary = new Itinerary();
+describe("Ship", () => {
+  let calais, amsterdam, itinerary, ship;
 
+  beforeEach(() => {
+    calais = new Port("Calais");
+    amsterdam = new Port("Amsterdam");
+    itinerary = new Itinerary([calais, amsterdam]);
+    ship = new Ship(itinerary);
+  });
+
+  it("Ensures an instance of an object can be created", () => {
     expect(itinerary).toBeInstanceOf(Object);
   });
 
   it("has a starting port property", () => {
-    const port = new Port("Calais");
-    const itinerary = new Itinerary([port]);
-    const ship = new Ship(itinerary);
-
-    expect(ship.currentPort).toBe(port);
+    expect(ship.currentPort).toBe(calais);
   });
 
   it("should be able to set sail", () => {
-    const calais = new Port("Calais");
-    const amsterdam = new Port("Amsterdam");
-
-    const itinerary = new Itinerary([calais, amsterdam]);
-    const ship = new Ship(itinerary);
-
     ship.setSail();
 
     expect(ship.currentPort).toBeFalsy();
@@ -31,12 +28,6 @@ describe("constructor", () => {
   });
 
   it("can dock at a different port", () => {
-    const calais = new Port("Calais");
-    const amsterdam = new Port("Amsterdam");
-
-    const itinerary = new Itinerary([calais, amsterdam]);
-    const ship = new Ship(itinerary);
-
     ship.setSail();
     ship.dock();
 
@@ -45,26 +36,13 @@ describe("constructor", () => {
   });
 
   it("cannot sail beyond the itinerary", () => {
-    const calais = new Port("Calais");
-    const amsterdam = new Port("Amsterdam");
-
-    const itinerary = new Itinerary([calais, amsterdam]);
-
-    const ship = new Ship(itinerary);
-
     ship.setSail();
     ship.dock();
 
-    expect(() => ship.setSail()).toThrowError(
-      "Cannot set sail. End of itinerary reached."
-    );
+    expect(() => ship.setSail()).toThrowError("Cannot set sail. End of itinerary reached.");
   });
 
-  it("Ship gets added to port on instaniation", () => {
-    const calais = new Port("Calais");
-    const itinerary = new Itinerary([calais]);
-    const ship = new Ship (itinerary);
-
+  it("Ship gets added to port on instantiation", () => {
     expect(calais.ships).toContain(ship);
   });
 });
