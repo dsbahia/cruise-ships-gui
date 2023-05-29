@@ -14,7 +14,7 @@ describe("Ship", () => {
 
   it("Ensures an instance of an object can be created", () => {
     expect(itinerary).toBeInstanceOf(Object);
-  });
+  }); 
 
   it("has a starting port property", () => {
     expect(ship.currentPort).toBe(calais);
