@@ -44,11 +44,13 @@ describe("Ship", () => {
     });
   });
 
-  it("can dock at a different port", () => {
-    ship.setSail();
-    ship.dock();
+  describe("Docking at different port", () => {
+    it("can dock at a different port", () => {
+      ship.setSail();
+      ship.dock();
 
-    expect(ship.currentPort).toBe(amsterdam);
-    expect(amsterdam.ships).toContain(ship);
+      expect(ship.currentPort).toBe(amsterdam);
+      expect(amsterdam.ships).toContain(ship);
+    });
   });
 });
