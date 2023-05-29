@@ -12,19 +12,36 @@ describe("Ship", () => {
     ship = new Ship(itinerary);
   });
 
-  it("Ensures an instance of an object can be created", () => {
-    expect(itinerary).toBeInstanceOf(Object);
-  }); 
+  describe("Instantiation of Itinerary and Ships/Port", () => {
+    it("Ensures an instance of an object can be created", () => {
+      expect(itinerary).toBeInstanceOf(Object);
+    });
 
-  it("has a starting port property", () => {
-    expect(ship.currentPort).toBe(calais);
+    it("Ship gets added to port on instantiation", () => {
+      expect(calais.ships).toContain(ship);
+    });
   });
 
-  it("should be able to set sail", () => {
-    ship.setSail();
+  describe("Setting Sail", () => {
+    it("has a starting port property", () => {
+      expect(ship.currentPort).toBe(calais);
+    });
 
-    expect(ship.currentPort).toBeFalsy();
-    expect(calais.ships.indexOf(ship)).toBe(-1);
+    it("should be able to set sail", () => {
+      ship.setSail();
+
+      expect(ship.currentPort).toBeFalsy();
+      expect(calais.ships.indexOf(ship)).toBe(-1);
+    });
+
+    it("cannot sail beyond the itinerary", () => {
+      ship.setSail();
+      ship.dock();
+
+      expect(() => ship.setSail()).toThrowError(
+        "Cannot set sail. End of itinerary reached."
+      );
+    });
   });
 
   it("can dock at a different port", () => {
@@ -33,16 +50,5 @@ describe("Ship", () => {
 
     expect(ship.currentPort).toBe(amsterdam);
     expect(amsterdam.ships).toContain(ship);
-  });
-
-  it("cannot sail beyond the itinerary", () => {
-    ship.setSail();
-    ship.dock();
-
-    expect(() => ship.setSail()).toThrowError("Cannot set sail. End of itinerary reached.");
-  });
-
-  it("Ship gets added to port on instantiation", () => {
-    expect(calais.ships).toContain(ship);
   });
 });
