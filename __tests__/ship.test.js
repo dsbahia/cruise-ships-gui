@@ -1,6 +1,4 @@
 const Ship = require("../src/ship");
-const Port = require("../src/port");
-const Itinerary = require("../src/itinerary");
 
 describe("Ship", () => {
   let calais;
@@ -9,8 +7,18 @@ describe("Ship", () => {
   let ship;
 
   beforeEach(() => {
-    calais = { name: "Calais", ships: [], addShip: jest.fn(), removeShip: jest.fn() };
-    amsterdam = { name: "Amsterdam", ships: [], addShip: jest.fn(), removeShip: jest.fn() };
+    calais = {
+      name: "Calais",
+      ships: [],
+      addShip: jest.fn(),
+      removeShip: jest.fn(),
+    };
+    amsterdam = {
+      name: "Amsterdam",
+      ships: [],
+      addShip: jest.fn(),
+      removeShip: jest.fn(),
+    };
     itinerary = { ports: [calais, amsterdam] };
     ship = new Ship(itinerary);
   });
