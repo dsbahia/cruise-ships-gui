@@ -23,6 +23,7 @@ Ship.prototype.setSail = function () {
   }
 
   this.currentPort = null;
+  this.previousPort.removeShip(this);
 };
 
 Ship.prototype.dock = function () {
