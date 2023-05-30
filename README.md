@@ -14,30 +14,30 @@ Open Node REPL in your terminal using node command.
 
 Copy the following and return 
 
-```const Itinerary = require('./src/itinerary.js');```
-```const Port = require('./src/port.js');```
-```const Ship = require('./src/ship.js');```
+- ```const Itinerary = require('./src/itinerary.js');```
+- ```const Port = require('./src/port.js');```
+- ```const Ship = require('./src/ship.js');```
 
 Create your ports, for example:
 
-```const portRoyal = new Port("Port Royal");```
-```const atlantis = new Port("Atlantis");```
-```const elysium = new Port("Elysium");```
-```const valhalla = new Port("Valhalla");```
-```const shangriLa = new Port("Shangri-La");```
+- ```const portRoyal = new Port("Port Royal");```
+- ```const atlantis = new Port("Atlantis");```
+- ```const elysium = new Port("Elysium");```
+- ```const valhalla = new Port("Valhalla");```
+- ```const shangriLa = new Port("Shangri-La");```
 
 Create your itinerary:
 
-```const itinerary = new Itinerary([portRoyal, atlantis, elysium, valhalla, shangriLa]);```
+- ```const itinerary = new Itinerary([portRoyal, atlantis, elysium, valhalla, shangriLa]);```
 
 Come up with a creative name for your boat:
 
-```const BoatyMcBoatFace = new Ship(itinerary);```
+- ```const BoatyMcBoatFace = new Ship(itinerary);```
 
 Then you can use the following commands to set sail and dock your ship:
 
-```BoatyMcBoatFace.setSail();```
-```BoatyMcBoatFace.dock();```
+- ```BoatyMcBoatFace.setSail();```
+- ```BoatyMcBoatFace.dock();```
 
 What happens if I reach my final destination and try to set sail?
 
