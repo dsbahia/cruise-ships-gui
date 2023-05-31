@@ -1,6 +1,6 @@
 # Cruise Ships GUI 🚢 🏁 
 
-This is a project where i'm building and working with many objects that allow a cruise ship to operate. Hopefully we don't hit any icebergs on the way. This has a Graphical User Interface, for the Console only version [click here](https://github.com/dsbahia/cruise-ships-gui)
+This is a project where i'm building and working with many objects that allow a cruise ship to operate. Hopefully we don't hit any icebergs on the way. This has a Graphical User Interface, for the Console only version [click here](https://github.com/dsbahia/cruise-ships)
 
 ## Technologies used:
 
