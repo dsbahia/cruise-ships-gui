@@ -11,7 +11,7 @@ class Ship {
 
     if (currentPortIndex === itinerary.ports.length - 1) {
       throw new Error("Cannot set sail. End of itinerary reached.");
-    };
+    }
 
     this.previousPort = this.currentPort;
 
@@ -19,8 +19,8 @@ class Ship {
       const shipIndex = this.previousPort.ships.indexOf(this);
       if (shipIndex !== -1) {
         this.previousPort.ships.splice(shipIndex, 1);
-      };
-    };
+      }
+    }
 
     this.currentPort = null;
     this.previousPort.removeShip(this);
@@ -33,8 +33,6 @@ class Ship {
 
     this.currentPort.addShip(this);
   }
-};
-
-
+}
 
 module.exports = Ship;

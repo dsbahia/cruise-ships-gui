@@ -1,7 +1,6 @@
 const Itinerary = require("../src/itinerary");
 
 describe("Itinerary", () => {
-  
   describe("instantiation of itinerary and ensuring it has a port", () => {
     it("Ensures an instance of the itinerary object can be created", () => {
       expect(new Itinerary()).toBeInstanceOf(Object);

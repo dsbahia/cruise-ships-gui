@@ -22,7 +22,7 @@ describe("Port", () => {
   describe("Adding and removing a ship from ports", () => {
     it("should add a ship to the port", () => {
       port.addShip(shipOne);
-      
+
       expect(port.ships.includes(shipOne)).toBe(true);
     });
 

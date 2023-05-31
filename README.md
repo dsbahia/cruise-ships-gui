@@ -1,4 +1,4 @@
-# Cruise Ships GUI 🚢 🏁 
+# Cruise Ships GUI 🚢 🏁
 
 This is a project where i'm building and working with many objects that allow a cruise ship to operate. Hopefully we don't hit any icebergs on the way. This has a Graphical User Interface, for the Console only version [click here](https://github.com/dsbahia/cruise-ships)
 
@@ -16,7 +16,7 @@ Run npm install to install the necessary libraries required for Node.js to run.
 
 ## Would you like to set sail to paradise?
 
-Open index.html in your folder on your browser 
+Open index.html in your folder on your browser
 
 ## Contributing
 
