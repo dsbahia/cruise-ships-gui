@@ -9,13 +9,32 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="viewport"></div>
+    <div id="viewport">
+      <div id="ports"></div>
+    </div>
   </body>
-  <script src="src/port.js"></script>
   <script src="src/controller.js"></script>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
+  <script src="src/itinerary.js"></script>
+  <script src="src/port.js"></script>
+
+  <script>
+    const portRoyal = new Port("Port Royal");
+    const atlantis = new Port("Atlantis");
+    const elysium = new Port("Elysium");
+    const valhalla = new Port("Valhalla");
+    const shangriLa = new Port("Shangri-La");
+
+    const itinerary = new Itinerary([
+      portRoyal,
+      atlantis,
+      elysium,
+      valhalla,
+      shangriLa,
+    ]);
+
+    document.addEventListener("DOMContentLoaded", function () {
       const controllerInstance = new Controller();
+      controllerInstance.renderPorts(itinerary.ports);
     });
   </script>
 </html>
