@@ -11,11 +11,13 @@
   <body>
     <div id="viewport">
       <div id="ports"></div>
+      <div id="ship"></div>
     </div>
   </body>
   <script src="src/controller.js"></script>
   <script src="src/itinerary.js"></script>
   <script src="src/port.js"></script>
+  <script src="src/ship.js"></script>
 
   <script>
     const portRoyal = new Port("Port Royal");
@@ -32,9 +34,12 @@
       shangriLa,
     ]);
 
+    const ship = new Ship(itinerary);
+
     document.addEventListener("DOMContentLoaded", function () {
       const controllerInstance = new Controller();
       controllerInstance.renderPorts(itinerary.ports);
+      controllerInstance.renderShip(ship);
     });
   </script>
 </html>

@@ -30,6 +30,18 @@
       const portWidth = 256;
       portsElement.style.width = `${portCount * portWidth}px`;
     }
+
+    renderShip(ship) {
+        const portElement = document.querySelector(`[data-port-index="${ship.itinerary.ports.indexOf(ship.currentPort)}"]`);
+        const shipElement = document.querySelector('#ship');
+        const offsetAdjustment = 32
+        
+        const shipTop = portElement.offsetTop + offsetAdjustment;
+        const shipLeft = portElement.offsetLeft - offsetAdjustment;
+        
+        shipElement.style.top = `${shipTop}px`;
+        shipElement.style.left = `${shipLeft}px`;
+    };
   }
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Controller;
