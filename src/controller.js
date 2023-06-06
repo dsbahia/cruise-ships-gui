@@ -34,7 +34,7 @@
     renderShip(ship) {
         const portElement = document.querySelector(`[data-port-index="${ship.itinerary.ports.indexOf(ship.currentPort)}"]`);
         const shipElement = document.querySelector('#ship');
-        const offsetAdjustment = 32
+        const offsetAdjustment = 32;
         
         const shipTop = portElement.offsetTop + offsetAdjustment;
         const shipLeft = portElement.offsetLeft - offsetAdjustment;
