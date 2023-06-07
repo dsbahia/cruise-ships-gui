@@ -53,6 +53,20 @@
       shipElement.style.left = `${shipLeft}px`;
     }
 
+    renderMessage(message) {
+      const viewport = document.querySelector("#viewport");
+
+      const messageElement = document.createElement("div");
+      messageElement.id = "message";
+      messageElement.innerHTML = message;
+
+      viewport.appendChild(messageElement);
+
+      setTimeout(() => {
+        viewport.removeChild(messageElement);
+      }, 2000);
+    }
+
     setSail() {
       const ship = this.ship;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
@@ -61,7 +75,8 @@
     
       if (!nextPortElement) {
         console.log("End of the route!");
-        return alert("End of the route!");
+        this.renderMessage("End of the route!");
+        return;
       }
     
       const shipElement = document.querySelector("#ship");
@@ -76,6 +91,7 @@
           clearInterval(sailInterval);
           ship.setSail();
           ship.dock();
+          this.renderMessage(`Ship has reached ${ship.currentPort.name}`);
           console.log(`Reached port: ${ship.currentPort.name}`);
         } else {
           shipElement.style.left = `${shipLeft + step}px`;
