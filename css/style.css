@@ -17,7 +17,7 @@ body {
 }
 
 #viewport {
-  width: 640px;
+  width: 90%;
   height: 256px;
   position: relative;
   overflow-x: auto;
@@ -41,4 +41,24 @@ body {
   width: 128px;
   height: 64px;
   background-image: url("../images/ship.png");
+}
+
+#sailbutton {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  font-family: 'Black Ops One', cursive;
+  text-transform: uppercase;
+  font-size: large;
+}
+
+#sailbutton:hover {
+  background-color: darkred;
+  cursor: pointer;
 }
