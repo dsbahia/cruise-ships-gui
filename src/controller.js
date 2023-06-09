@@ -67,31 +67,72 @@
       }, 2000);
     }
 
+    initializeHUD() {
+      const ship = this.ship;
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const nextPortIndex = currentPortIndex + 1;
+      const nextPort = ship.itinerary.ports[nextPortIndex];
+      const hudMsg = `Current Port: ${ship.currentPort.name}<br>Next Port: ${nextPort.name}`;
+      this.renderHUD(hudMsg);
+    }
+
+    renderHUD(message) {
+      const viewport = document.querySelector("html");
+      let hudElement = document.querySelector("#hud");
+
+      if (hudElement) {
+        hudElement.innerHTML = message;
+      } else {
+        hudElement = document.createElement("div");
+        hudElement.id = "hud";
+        hudElement.innerHTML = message;
+        viewport.appendChild(hudElement);
+      }
+    }
+
+    updateHUD() {
+      const ship = this.ship;
+      const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+      const nextPortIndex = currentPortIndex + 1;
+      const nextPort = ship.itinerary.ports[nextPortIndex];
+
+      if (nextPort) {
+        const hudMsg = `Current Port: ${ship.currentPort.name}<br>Next Port: ${nextPort.name}`;
+        this.renderHUD(hudMsg);
+      } else {
+        const hudMsg = `Current port: ${ship.currentPort.name}<br>This ship terminates here. Please disembark upon arrival.`;
+        this.renderHUD(hudMsg);
+      }
+    }
+
     setSail() {
       const ship = this.ship;
       const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
       const nextPortIndex = currentPortIndex + 1;
-      const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
-    
+      const nextPortElement = document.querySelector(
+        `[data-port-index='${nextPortIndex}']`
+      );
+
       if (!nextPortElement) {
         console.log("End of the route!");
         this.renderMessage("End of the route!");
         return;
       }
-    
+
       const shipElement = document.querySelector("#ship");
       const step = 1;
       const interval = 20;
-    
+
       const sailInterval = setInterval(() => {
         const shipLeft = parseInt(shipElement.style.left, 10);
         const destinationLeft = nextPortElement.offsetLeft - 32;
-    
+
         if (shipLeft === destinationLeft) {
           clearInterval(sailInterval);
           ship.setSail();
           ship.dock();
           this.renderMessage(`Ship has reached ${ship.currentPort.name}`);
+          this.updateHUD();
           console.log(`Reached port: ${ship.currentPort.name}`);
         } else {
           shipElement.style.left = `${shipLeft + step}px`;

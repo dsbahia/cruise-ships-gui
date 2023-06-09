@@ -7,14 +7,17 @@
     <title>Cruise Ships</title>
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="viewport">
       <div id="ports"></div>
       <div id="ship"></div>
-      <button id="sailbutton">Set Sail!</button>
     </div>
+    <button id="sailbutton">Set Sail!</button>
   </body>
   <script src="src/controller.js"></script>
   <script src="src/itinerary.js"></script>
@@ -40,6 +43,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       const controllerInstance = new Controller(ship);
+      controllerInstance.initializeHUD();
       controllerInstance.renderPorts(itinerary.ports);
       controllerInstance.renderShip(ship);
     });
